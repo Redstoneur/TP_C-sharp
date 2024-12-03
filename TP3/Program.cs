@@ -2,7 +2,7 @@
 
 // Console.WriteLine("Hello, World!");
 
-namespace TP3Et1;
+namespace TP3;
 
 internal static class Program
 {
