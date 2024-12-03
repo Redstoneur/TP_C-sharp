@@ -1,6 +1,7 @@
 ﻿namespace TP2Ex1;
 
-class Livre(string nom, double prix, int quantite, bool isBn, int nbPages) : Article(nom, prix, quantite), IRentable
+class Livre(string nom, double prix, int quantite, TypeArticle type, bool isBn, int nbPages)
+    : ArticleType(nom, prix, quantite, type), IRentable
 {
     protected bool IsBn { get; set; } = isBn;
     protected int NbPages { get; set; } = nbPages;
@@ -10,8 +11,7 @@ class Livre(string nom, double prix, int quantite, bool isBn, int nbPages) : Art
         return Prix * 0.05; // Exemple : 5% du prix
     }
 
-    public override string ToString() =>
-        $"Nom : {Nom}, Prix : {Prix} €, Quantité : {Quantite}, ISBN : {IsBn}, Nombre de pages : {NbPages}";
+    public override string ToString() => base.ToString() + $", IsBn : {IsBn}, NbPages : {NbPages}";
 
     public new void Afficher()
     {
