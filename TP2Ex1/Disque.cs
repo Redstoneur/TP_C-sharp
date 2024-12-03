@@ -1,0 +1,13 @@
+﻿namespace TP2Ex1;
+
+class Disque(string nom, double prix, int quantite, string label) : Article(nom, prix, quantite)
+{
+    protected string Label { get; set; } = label;
+    
+    public override string ToString() => $"Nom : {Nom}, Prix : {Prix} €, Quantité : {Quantite}, Label : {Label}";
+    
+    public new void Afficher()
+    {
+        Console.WriteLine(ToString());
+    }
+}
