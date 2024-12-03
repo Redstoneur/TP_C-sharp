@@ -1,4 +1,7 @@
-﻿# Récupère le dossier contenant le script PowerShell actuel
+﻿# Ce script PowerShell vérifie l'existence de certains projets dans un dossier spécifié,
+# puis exécute des commandes .NET (clean, restore, build) pour chaque projet trouvé.
+
+# Récupère le dossier contenant le script PowerShell actuel
 $cheminDossierLocal = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 # Liste statique des projets à vérifier
@@ -8,18 +11,21 @@ $projets = @("HelloWord", "TP1", "TP2Ex1", "TP2Ex2", "TP2Ex3")  # Liste des proj
 $projetsDossier = Get-ChildItem -Path $cheminDossierLocal -Recurse -Directory
 
 # Parcours chaque projet de la liste
-foreach ($projet in $projets) {
+foreach ($projet in $projets)
+{
     # Recherche du dossier correspondant au projet dans la liste des sous-dossiers
     $projetDossier = $projetsDossier | Where-Object { $_.Name -eq $projet }
 
-    if ($projetDossier) {
-        Write-Host "Projet '$projet' trouvé dans le dossier : $($projetDossier.FullName)"
+    if ($projetDossier)
+    {
+        Write-Host "Projet '$projet' trouvé dans le dossier : $( $projetDossier.FullName )"
 
         # Accède au dossier du projet
         Set-Location -Path $projetDossier.FullName
 
         # Exécute les commandes dotnet
-        try {
+        try
+        {
             Write-Host "Exécution de 'dotnet clean' pour le projet '$projet'..."
             dotnet clean
             Write-Host "Exécution de 'dotnet restore' pour le projet '$projet'..."
@@ -27,10 +33,14 @@ foreach ($projet in $projets) {
             Write-Host "Exécution de 'dotnet build' pour le projet '$projet'..."
             dotnet build
             Write-Host "Toutes les commandes ont été exécutées avec succès pour le projet '$projet'."
-        } catch {
+        }
+        catch
+        {
             Write-Host "Une erreur est survenue lors de l'exécution des commandes pour le projet '$projet'."
         }
-    } else {
+    }
+    else
+    {
         Write-Host "Le projet '$projet' n'a pas été trouvé dans le dossier spécifié."
     }
 }
