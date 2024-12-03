@@ -2,7 +2,7 @@
 $cheminDossierLocal = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
 # Liste statique des projets à vérifier
-$projets = @("HelloWord", "TP1")  # Liste des projets
+$projets = @("HelloWord", "TP1", "TP2Ex1")  # Liste des projets
 
 # Liste tous les sous-dossiers du dossier local
 $projetsDossier = Get-ChildItem -Path $cheminDossierLocal -Recurse -Directory
