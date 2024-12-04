@@ -131,18 +131,21 @@ internal static class Program
 
         // Étape 4.1 : Sérialisation JSON
         Console.WriteLine("Étape 4.1 : Sérialisation JSON");
+        const string nomFichier = "articles.json";
 
         // Exportez votre liste d’articles vers un fichier JSON à l’aide de la bibliothèque System.Text.Json.
+        Console.WriteLine($"Création d'un fichier JSON : {nomFichier}");
         string json = JsonSerializer.Serialize(articles);
-        File.WriteAllText("articles.json", json);
+        File.WriteAllText(nomFichier, json);
+        Console.WriteLine("Fichier JSON créé avec succès");
 
 
         // Étape 4.2 : Désérialisation JSON
         Console.WriteLine("Étape 4.2 : Désérialisation JSON");
 
         // Chargez les articles depuis le fichier JSON et affichez-les
-
-        string jsonFromFile = File.ReadAllText("articles.json");
+        Console.WriteLine($"Chargement du fichier JSON : {nomFichier}");
+        string jsonFromFile = File.ReadAllText(nomFichier);
         List<ArticleType> articlesFromJson =
             JsonSerializer.Deserialize<List<ArticleType>>(jsonFromFile) ?? new List<ArticleType>();
 
