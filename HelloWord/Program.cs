@@ -5,14 +5,14 @@
 namespace HelloWord
 {
     /// <summary>
-    /// The main class of the HelloWord application.
+    /// La classe principale de l'application HelloWord.
     /// </summary>
     internal static class Program
     {
         /// <summary>
-        /// The main entry point of the application.
+        /// Le point d'entrée principal de l'application.
         /// </summary>
-        /// <param name="args">An array of command-line arguments.</param>
+        /// <param name="args">Un tableau d'arguments de ligne de commande.</param>
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
