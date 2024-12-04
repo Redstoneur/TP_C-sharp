@@ -1,7 +1,7 @@
 ﻿namespace TP2Ex3;
 
-class Disque(string nom, double prix, int quantite, TypeArticle type, string label)
-    : ArticleType(nom, prix, quantite, type)
+class Disque(string nom, double prix, int quantite, string label)
+    : ArticleType(nom, prix, quantite, TypeArticle.Multimédia)
 {
     protected string Label { get; set; } = label;
     

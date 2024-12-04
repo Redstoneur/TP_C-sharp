@@ -1,7 +1,7 @@
 ﻿namespace TP2Ex3;
 
-class Livre(string nom, double prix, int quantite, TypeArticle type, bool isBn, int nbPages)
-    : ArticleType(nom, prix, quantite, type), IRentable
+class Livre(string nom, double prix, int quantite, bool isBn, int nbPages)
+    : ArticleType(nom, prix, quantite, TypeArticle.Papeterie), IRentable
 {
     protected bool IsBn { get; set; } = isBn;
     protected int NbPages { get; set; } = nbPages;
