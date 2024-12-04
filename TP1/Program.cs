@@ -8,7 +8,7 @@ internal static class Program
     /// <param name="titre">Le titre à formater.</param>
     /// <param name="nbTirets">Le nombre de tirets à utiliser pour la bordure.</param>
     /// <returns>Une chaîne formatée avec le titre entouré de tirets.</returns>
-    private string Titre(string titre, int nbTirets)
+    private static string Titre(string titre, int nbTirets)
     {
         string tirets = new string('-', nbTirets);
         string titreEntoure = $"--- {titre} ---";
