@@ -131,25 +131,31 @@ internal static class Program
 
         // Étape 4.1 : Sérialisation JSON
         Console.WriteLine("Étape 4.1 : Sérialisation JSON");
+        // recupère le chemin absolu du fichier
         const string nomFichier = "articles.json";
-
+        string cheminFichier = Path.GetFullPath(nomFichier);
+        
+        Console.WriteLine($"Chemin du fichier JSON : {cheminFichier}");
+        
         // Exportez votre liste d’articles vers un fichier JSON à l’aide de la bibliothèque System.Text.Json.
         Console.WriteLine($"Création d'un fichier JSON : {nomFichier}");
         string json = JsonSerializer.Serialize(articles);
-        File.WriteAllText(nomFichier, json);
+        File.WriteAllText(cheminFichier, json);
         Console.WriteLine("Fichier JSON créé avec succès");
 
 
         // Étape 4.2 : Désérialisation JSON
         Console.WriteLine("Étape 4.2 : Désérialisation JSON");
+        Console.WriteLine("En Développement");
 
-        // Chargez les articles depuis le fichier JSON et affichez-les
-        Console.WriteLine($"Chargement du fichier JSON : {nomFichier}");
-        string jsonFromFile = File.ReadAllText(nomFichier);
-        List<ArticleType> articlesFromJson =
-            JsonSerializer.Deserialize<List<ArticleType>>(jsonFromFile) ?? new List<ArticleType>();
-
-        Console.WriteLine("Articles depuis le fichier JSON :");
-        articlesFromJson.AfficherTous();
+        // todo: Ne fonctionne pas pas car pas de constructeur par JSON pour les classes Article, ArticleType, Disque, Livre et Video
+        // // Chargez les articles depuis le fichier JSON et affichez-les
+        // Console.WriteLine($"Chargement du fichier JSON : {nomFichier}");
+        // string jsonFromFile = File.ReadAllText(cheminFichier);
+        // List<ArticleType> articlesFromJson =
+        //     JsonSerializer.Deserialize<List<ArticleType>>(jsonFromFile) ?? new List<ArticleType>();
+        //
+        // Console.WriteLine("Articles depuis le fichier JSON :");
+        // articlesFromJson.AfficherTous();
     }
 }
