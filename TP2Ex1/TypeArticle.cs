@@ -5,5 +5,7 @@ public enum TypeArticle
     Alimentaire,
     Droguerie,
     Habillement,
-    Loisir
+    Loisir,
+    Multimédia,
+    Papeterie
 }
