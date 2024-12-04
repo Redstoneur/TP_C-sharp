@@ -1,7 +1,7 @@
 ﻿namespace TP2Ex2;
 
-class Video(string nom, double prix, int quantite, TypeArticle type, double duree)
-    : ArticleType(nom, prix, quantite, type), IRentable
+class Video(string nom, double prix, int quantite, double duree)
+    : ArticleType(nom, prix, quantite, TypeArticle.Multimédia), IRentable
 {
     protected double Duree { get; set; } = duree;
     
