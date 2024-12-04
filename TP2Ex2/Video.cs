@@ -3,25 +3,16 @@
 /// <summary>
 /// Représente un article vidéo qui peut être loué.
 /// </summary>
-class Video : ArticleType, IRentable
+/// <param name="nom">Le nom de la vidéo.</param>
+/// <param name="prix">Le prix de la vidéo.</param>
+/// <param name="quantite">La quantité de la vidéo.</param>
+/// <param name="duree">La durée de la vidéo.</param>
+class Video(string nom, double prix, int quantite, double duree) : ArticleType(nom, prix, quantite, TypeArticle.Multimédia), IRentable
 {
     /// <summary>
     /// Obtient ou définit la durée de la vidéo.
     /// </summary>
     protected double Duree { get; set; }
-
-    /// <summary>
-    /// Initialise une nouvelle instance de la classe <see cref="Video"/>.
-    /// </summary>
-    /// <param name="nom">Le nom de la vidéo.</param>
-    /// <param name="prix">Le prix de la vidéo.</param>
-    /// <param name="quantite">La quantité de la vidéo.</param>
-    /// <param name="duree">La durée de la vidéo.</param>
-    public Video(string nom, double prix, int quantite, double duree)
-        : base(nom, prix, quantite, TypeArticle.Multimédia)
-    {
-        Duree = duree;
-    }
 
     /// <summary>
     /// Calcule le prix de location de la vidéo.
