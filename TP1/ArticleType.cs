@@ -21,12 +21,4 @@ public class ArticleType(string? nom, double prix, int quantite, TypeArticle typ
     /// </summary>
     /// <returns>Une chaîne qui représente le type d'article actuel.</returns>
     public override string ToString() => base.ToString() + $", Type : {Type}";
-
-    /// <summary>
-    /// Affiche les informations du type d'article dans la console.
-    /// </summary>
-    public void Afficher()
-    {
-        Console.WriteLine(ToString());
-    }
 }
