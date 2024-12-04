@@ -2,12 +2,20 @@
 
 // Console.WriteLine("Hello, World!");
 
-namespace HelloWord;
-
-internal static class Program
+namespace HelloWord
 {
-    private static void Main(string[] args)
+    /// <summary>
+    /// The main class of the HelloWord application.
+    /// </summary>
+    internal static class Program
     {
-        Console.WriteLine("Hello, World!");
+        /// <summary>
+        /// The main entry point of the application.
+        /// </summary>
+        /// <param name="args">An array of command-line arguments.</param>
+        private static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
     }
 }
