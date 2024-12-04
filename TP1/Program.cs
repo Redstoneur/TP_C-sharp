@@ -2,13 +2,31 @@
 
 internal static class Program
 {
+    /// <summary>
+    /// Génère une chaîne de titre formatée avec des tirets autour.
+    /// </summary>
+    /// <param name="titre">Le titre à formater.</param>
+    /// <param name="nbTirets">Le nombre de tirets à utiliser pour la bordure.</param>
+    /// <returns>Une chaîne formatée avec le titre entouré de tirets.</returns>
+    private string Titre(string titre, int nbTirets)
+    {
+        string tirets = new string('-', nbTirets);
+        string titreEntoure = $"--- {titre} ---";
+        titreEntoure += new string('-', nbTirets - titreEntoure.Length);
+
+        return $"{tirets}\n{titreEntoure}\n{tirets}";
+    }
+
+    /// <summary>
+    /// Le point d'entrée principal de l'application.
+    /// </summary>
+    /// <param name="args">Un tableau d'arguments de la ligne de commande.</param>
     private static void Main(string[] args)
     {
         const int nbTirets = 100;
+        const string titre = "TP1";
 
-        Console.WriteLine("\n" + new string('-', nbTirets));
-        Console.WriteLine("--- TP1 ---");
-        Console.WriteLine(new string('-', nbTirets));
+        Console.WriteLine(Titre(titre, nbTirets));
 
         Console.WriteLine("Exercice ARTICLE :");
 
@@ -25,6 +43,9 @@ internal static class Program
         TableauArticlesType();
     }
 
+    /// <summary>
+    /// Démontre la fonctionnalité de la classe Article.
+    /// </summary>
     private static void ExerciceArticles()
     {
         Article article1 = new Article("Livre", 15.5, 10);
@@ -45,6 +66,9 @@ internal static class Program
         article2.Afficher();
     }
 
+    /// <summary>
+    /// Démontre la fonctionnalité de la classe ArticleType.
+    /// </summary>
     private static void ExerciceArticlesType()
     {
         ArticleType article1 = new ArticleType("Chocolat", 3.2, 50, TypeArticle.Alimentaire);
@@ -64,6 +88,9 @@ internal static class Program
         article2.Afficher();
     }
 
+    /// <summary>
+    /// Démontre la fonctionnalité d'un tableau d'objets ArticleType.
+    /// </summary>
     private static void TableauArticlesType()
     {
         ArticleType[] articles = new ArticleType[3];
