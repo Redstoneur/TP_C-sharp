@@ -41,6 +41,7 @@ internal static class Program
     /// </summary>
     private static void Tp1Exercice2()
     {
+        Console.WriteLine("Création d'une liste d'articles ...");
         List<Article> articles =
         [
             new Livre("Livre", 10, 5, true, 200),
@@ -51,6 +52,7 @@ internal static class Program
             new Video("Film 2", 25, 2, 90)
         ];
 
+        Console.WriteLine("Liste des articles :\n");
         foreach (var article in articles)
         {
             Console.WriteLine("\n");
