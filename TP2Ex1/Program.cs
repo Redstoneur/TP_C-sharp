@@ -27,7 +27,7 @@ internal static class Program
     private static void Main(string[] args)
     {
         const int nbTirets = 100;
-        const string titre = "TP1";
+        const string titre = "TP2";
 
         Console.WriteLine(Titre(titre, nbTirets));
 
@@ -37,7 +37,7 @@ internal static class Program
     }
 
     /// <summary>
-    /// Exécute le premier exercice de TP1.
+    /// Exécute le premier exercice de TP2.
     /// </summary>
     private static void Tp1Exercice1()
     {
