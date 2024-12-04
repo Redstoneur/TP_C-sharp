@@ -1,23 +1,47 @@
 ﻿namespace TP2Ex3;
 
+/// <summary>
+/// La classe principale du programme pour TP2Ex1.
+/// </summary>
 internal static class Program
 {
+    /// <summary>
+    /// Génère une chaîne de titre formatée avec des tirets autour.
+    /// </summary>
+    /// <param name="titre">Le titre à formater.</param>
+    /// <param name="nbTirets">Le nombre de tirets à utiliser pour la bordure.</param>
+    /// <returns>Une chaîne formatée avec le titre entouré de tirets.</returns>
+    private static string Titre(string titre, int nbTirets)
+    {
+        string tirets = new string('-', nbTirets);
+        string titreEntoure = $"--- {titre} ---";
+        titreEntoure += new string('-', nbTirets - titreEntoure.Length);
+
+        return $"{tirets}\n{titreEntoure}\n{tirets}";
+    }
+
+    /// <summary>
+    /// Le point d'entrée principal de l'application.
+    /// </summary>
+    /// <param name="args">Les arguments de la ligne de commande.</param>
     private static void Main(string[] args)
     {
         const int nbTirets = 100;
+        const string titre = "TP2";
 
-        Console.WriteLine("\n\n" + new string('-', nbTirets));
-        Console.WriteLine("--- TP1 ---");
-        Console.WriteLine("" + new string('-', nbTirets));
+        Console.WriteLine(Titre(titre, nbTirets));
 
-        Console.WriteLine(new string('-', nbTirets));
-        Console.WriteLine("Exercice 3 :");
+        Console.WriteLine("Exercice 3 :\n");
 
         Tp1Exercice3();
     }
 
+    /// <summary>
+    /// Exécute le premier exercice de TP2.
+    /// </summary>
     private static void Tp1Exercice3()
     {
+        Console.WriteLine("Création d'une liste d'articles ...");
         List<Article> articles =
         [
             new Livre("Livre", 10, 5, true, 200),
@@ -28,6 +52,7 @@ internal static class Program
             new Video("Film 2", 25, 2, 90)
         ];
 
+        Console.WriteLine("Liste des articles :\n");
         foreach (var article in articles)
         {
             article.Afficher();
