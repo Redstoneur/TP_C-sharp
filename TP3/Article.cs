@@ -5,25 +5,35 @@ using System;
 /// <summary>
 /// Représente un article avec un nom, un prix et une quantité.
 /// </summary>
-/// <param name="nom">Le nom de l'article.</param>
-/// <param name="prix">Le prix de l'article.</param>
-/// <param name="quantite">La quantité de l'article.</param>
-public class Article(string? nom, double prix, int quantite) : Publication
+public class Article : Publication
 {
     /// <summary>
     /// Obtient le nom de l'article.
     /// </summary>
-    public string? Nom { get; } = nom;
+    public string? Nom { get; }
 
     /// <summary>
     /// Obtient le prix de l'article.
     /// </summary>
-    public double Prix { get; } = prix;
+    public double Prix { get; }
 
     /// <summary>
     /// Obtient ou définit la quantité de l'article.
     /// </summary>
-    public int Quantite { get; set; } = quantite;
+    public int Quantite { get; set; }
+
+    /// <summary>
+    /// Constructeur de la classe Article.
+    /// </summary>
+    /// <param name="nom">Le nom de l'article.</param>
+    /// <param name="prix">Le prix de l'article.</param>
+    /// <param name="quantite">La quantité de l'article.</param>
+    public Article(string nom, double prix, int quantite)
+    {
+        Nom = nom;
+        Prix = prix;
+        Quantite = quantite;
+    }
 
     /// <summary>
     /// Retourne une chaîne qui représente l'article actuel.

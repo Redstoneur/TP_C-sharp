@@ -3,23 +3,32 @@
 /// <summary>
 /// Représente un livre qui est louable.
 /// </summary>
-/// <param name="nom">Le nom du livre.</param>
-/// <param name="prix">Le prix du livre.</param>
-/// <param name="quantite">La quantité du livre.</param>
-/// <param name="isBn">Indique si le livre a un ISBN.</param>
-/// <param name="nbPages">Le nombre de pages du livre.</param>
-class Livre(string nom, double prix, int quantite, bool isBn, int nbPages)
-    : ArticleType(nom, prix, quantite, TypeArticle.Papeterie), IRentable
+class Livre : ArticleType, IRentable
 {
     /// <summary>
     /// Obtient ou définit une valeur indiquant si le livre a un ISBN.
     /// </summary>
-    protected bool IsBn { get; set; } = isBn;
+    protected bool IsBn { get; set; }
 
     /// <summary>
     /// Obtient ou définit le nombre de pages du livre.
     /// </summary>
-    protected int NbPages { get; set; } = nbPages;
+    protected int NbPages { get; set; }
+
+    /// <summary>
+    /// Constructeur de la classe Livre.
+    /// </summary>
+    /// <param name="nom">Le nom du livre.</param>
+    /// <param name="prix">Le prix du livre.</param>
+    /// <param name="quantite">La quantité du livre.</param>
+    /// <param name="isBn">Indique si le livre a un ISBN.</param>
+    /// <param name="nbPages">Le nombre de pages du livre.</param>
+    public Livre(string nom, double prix, int quantite, bool isBn, int nbPages)
+        : base(nom, prix, quantite, TypeArticle.Papeterie)
+    {
+        IsBn = isBn;
+        NbPages = nbPages;
+    }
 
     /// <summary>
     /// Calcule le loyer du livre.
